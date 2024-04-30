@@ -1,0 +1,233 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}UniSwap Global{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/main.js' %}"></script>
+    <style>
+        .dropdown-menu {
+            display: none;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-toggle::after {
+            font-family: FontAwesome;
+            margin-left: 5px;
+        }
+        
+
+        .nav-links li {
+            list-style: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class="header">
+        <button id="sidebar-toggle" class="toggle-btn"><i class="fas fa-bars"></i></button>
+        <div class="logo-container">
+            <h2 class="logo-text">𝓤𝓷𝓲𝓢𝔀𝓪𝓹</h2>
+        </div>
+        <form action="{% url 'search' %}" method="GET">
+            <div class="search-bar-container">
+                <input type="text" class="search-bar" name="q" placeholder="Search...">
+                <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <div class="login-register-buttons">
+            <div class="button-box">
+                <a href="{% url 'login' %}" class="login-btn"><i class="fas fa-sign-in-alt"></i> Login</a>
+            </div>
+            <div class="button-box">
+                <a href="{% url 'register' %}" class="register-btn"><i class="fas fa-user-plus"></i> Register</a>
+            </div>
+        </div>
+        <div class="dark-mode-toggle">
+            <input type="checkbox" id="dark-mode-toggle-checkbox">
+            <label for="dark-mode-toggle-checkbox" class="dark-mode-toggle-label">
+                <div class="toggle-ball"></div>
+            </label>
+        </div>
+    </header>
+    
+    
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            
+        </div>
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="{% url 'exchange_list' %}"><i class="fas fa-exchange-alt"></i> Exchanges</a></li>
+            <li><a href="{% url 'events_list' %}"><i class="fas fa-calendar-alt"></i> Events</a></li>
+            <li><a href="{% url 'about' %}"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="{% url 'contact' %}"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li class="dropdown">
+                <a href="{% url 'login' %}" class="dropdown-toggle"><i class="fas fa-user"></i> Profile <i class="fas fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'view_profile' %}"><i class="fas fa-eye"></i> View Profile</a></li>
+                    <li><a href="{% url 'edit_profile' %}"><i class="fas fa-edit"></i> Edit Profile</a></li>
+                  {% endif %}
+                </ul>
+            </li>
+            
+            <li class="dropdown">
+                <a href="{% url 'login' %}" class="dropdown-toggle"><i class="fas fa-cogs"></i> Admin <i class="fas fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'admin_dashboard' %}"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="{% url 'career_opportunities' %}"><i class="fas fa-briefcase"></i> Career </a></li>
+                    <li><a href="{% url 'cultural_immersion' %}"><i class="fas fa-globe"></i> Immersion Programs</a></li>
+                    <li><a href="{% url 'language_learning' %}"><i class="fas fa-language"></i> Language Learning</a></li>
+                    {% endif %}
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            {% endif %}
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    
+    
+    
+
+    <div class="content">
+
+        {% block content %} {% endblock %}
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates.</p>
+                    <form>
+                        <input type="email" name="email" placeholder="Enter your email">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+                <div class="footer-section">
+                    <h3 class="follow-us-heading">Follow Us</h3>
+                    <ul class="social-icons">
+                        <li><a href="https://www.facebook.com/Fwimd13" class="fab fa-facebook"></a></li>
+                        <li><a href="#" class="fab fa-twitter"></a></li>
+                        <li><a href="#" class="fab fa-instagram"></a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@uniswap.com</p>
+                    <p>Phone: +254 11-418-4507</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p id="currentYear">© UniSwap Global</p>
+                <p><a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-of-use">Terms of Use</a></p>
+            </div>
+        </footer>
+
+    </div>
+    <script>
+        const sidebar = document.querySelector('.sidebar');
+const content = document.querySelector('.content');
+const sidebarToggle = document.getElementById('sidebar-toggle');
+const logo = document.querySelector('.logo');
+
+function toggleSidebar() {
+    sidebar.classList.toggle('active');
+    content.classList.toggle('active');
+
+    if (sidebar.classList.contains('active')) {
+        logo.style.marginLeft = '250px';
+    } else {
+        logo.style.marginLeft = '50px';
+
+        // Remove the toggle button immediately when closing the sidebar
+        sidebarToggle.style.display = 'none';
+    }
+}
+
+sidebarToggle.addEventListener('click', function() {
+    toggleSidebar();
+    
+    // Show the toggle button if the sidebar is opened
+    if (sidebar.classList.contains('active')) {
+        sidebarToggle.style.display = 'block';
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const darkModeToggle = document.getElementById('dark-mode-toggle-checkbox');
+    const body = document.body;
+
+    function applyFooterDarkModeStyles(isDarkMode) {
+        const footer = document.querySelector('footer');
+        const footerLinks = document.querySelectorAll('footer a');
+
+        if (isDarkMode) {
+            footer.style.backgroundColor = '#333';
+            footer.style.color = '#fff';
+
+            footerLinks.forEach(link => {
+                link.style.color = '#fff';
+            });
+        } else {
+            footer.style.backgroundColor = '#f5f5f5';
+            footer.style.color = '#333';
+
+            footerLinks.forEach(link => {
+                link.style.color = '#333';
+            });
+        }
+    }
+
+    const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+
+    if (isDarkMode) {
+        body.classList.add('dark');
+        darkModeToggle.checked = true;
+        applyFooterDarkModeStyles(true);
+    }
+
+    darkModeToggle.addEventListener('change', function() {
+        if (darkModeToggle.checked) {
+            body.classList.add('dark');
+            localStorage.setItem('darkMode', 'enabled');
+            applyFooterDarkModeStyles(true);
+        } else {
+            body.classList.remove('dark');
+            localStorage.setItem('darkMode', null);
+            applyFooterDarkModeStyles(false);
+        }
+    });
+});
+
+function getCurrentYear() {
+    return new Date().getFullYear();
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    var currentYearElement = document.getElementById("currentYear");
+    if (currentYearElement) {
+        currentYearElement.textContent = "© " + getCurrentYear() + " UniSwap Global";
+    }
+});
+
+
+    
+    </script>
+
+
+</body>
+
+</html>

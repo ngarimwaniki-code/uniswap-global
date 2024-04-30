@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %}View Profile{% endblock %}
+
+{% block content %}
+<style>
+
+.card {
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #007bff;
+    color: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-header h2 {
+    font-size: 1.8rem;
+    margin: 0;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.profile-picture img {
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+.profile-details p {
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Add this line to remove underline */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+</style>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">Your Profile</h2>
+                </div>
+                <div class="card-body">
+                    {% if profile %}
+                    <div class="profile-info">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="profile-picture">
+                                    <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="profile-details">
+                                    <p><strong>Username:</strong> {{ profile.user.username }}</p>
+                                    <p><strong>Email:</strong> {{ profile.user.email }}</p>
+                                    <p><strong>First Name:</strong> {{ profile.first_name }}</p>
+                                    <p><strong>Last Name:</strong> {{ profile.last_name }}</p>
+                                    {% if profile.date_of_birth %}
+                                    <p><strong>Date of Birth:</strong> {{ profile.date_of_birth }}</p>
+                                    {% endif %}
+                                    {% if profile.bio %}
+                                    <p><strong>Bio:</strong> {{ profile.bio }}</p>
+                                    {% endif %}
+                                    <!-- Add more profile details as needed -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <p class="text-center">No profile found.</p>
+                    {% endif %}
+                    <div class="text-center mt-3">
+                        <a href="{% url 'edit_profile' %}" class="btn btn-primary">Edit Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

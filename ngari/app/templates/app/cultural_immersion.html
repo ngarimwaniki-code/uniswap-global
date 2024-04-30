@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Cultural Immersion Programs{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>Cultural Immersion Programs</h1>
+    {% for program in programs %}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ program.title }}</h5>
+            <p class="card-text">{{ program.description }}</p>
+            <p class="card-text">Duration: {{ program.duration }}</p>
+            <p class="card-text">Location: {{ program.location }}</p>
+            <p class="card-text">Price: ${{ program.price }}</p>
+            <p class="card-text">Enrollment Open: {% if program.enrollment_open %}Yes{% else %}No{% endif %}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

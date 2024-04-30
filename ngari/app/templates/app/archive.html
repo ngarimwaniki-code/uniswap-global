@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h1>Archive</h1>
+    <ul>
+      {% for year, posts in posts_by_year.items %}
+        <li>{{ year }}
+          <ul>
+            {% for post in posts %}
+              <li><a href="{% url 'app:post_detail' slug=post.slug %}">{{ post.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

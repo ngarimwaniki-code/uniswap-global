@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Career Opportunities{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>Career Opportunities</h1>
+    {% for opportunity in opportunities %}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ opportunity.title }}</h5>
+            <p class="card-text">{{ opportunity.description }}</p>
+            <p class="card-text">Company: {{ opportunity.company }}</p>
+            <p class="card-text">Location: {{ opportunity.location }}</p>
+            <p class="card-text">Salary: ${{ opportunity.salary }}</p>
+            <p class="card-text">Posted Date: {{ opportunity.posted_date }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

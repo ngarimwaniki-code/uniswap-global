@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}About Us - UniSwap Global{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
+
+<div class="container margin-top-large">
+    <h1 class="animated fadeInDown">About Us</h1>
+    <p class="animated fadeInUp">Welcome to UniSwap Global - Your Global Student Exchange Platform.</p>
+    <div class="card-container">
+        <div class="card animated fadeInLeft">
+            <img src="{% static 'images/logo.png.png' %}" alt="About UniSwap Global" class="card-img-top">
+            <div class="card-body">
+                <p class="card-text">UniSwap Global is a platform dedicated to facilitating student exchange programs worldwide. Our mission is to connect students from different corners of the globe, fostering cultural exchange, academic growth, and personal development.</p>
+            </div>
+        </div>
+        <div class="card animated fadeInRight">
+            <div class="card-body">
+                <p class="card-text">With UniSwap Global, students can explore a wide range of exchange opportunities, including semester exchanges, summer programs, internships, and volunteer placements. We collaborate with universities, colleges, and organizations worldwide to offer diverse and enriching experiences for students.</p>
+            </div>
+        </div>
+        <div class="card animated fadeInLeft">
+            <div class="card-body">
+                <p class="card-text">At UniSwap Global, we believe in the power of international education to break down barriers, promote understanding, and create a more interconnected world. Whether you're seeking to study abroad, gain work experience overseas, or immerse yourself in a new culture, UniSwap Global is here to support your journey.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <a href="{% url 'register' %}" class="btn btn-primary btn-lg animated pulse infinite">
+                Join UniSwap Global Today!
+            </a>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

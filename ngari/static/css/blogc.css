@@ -1,0 +1,103 @@
+
+/* Style for the container */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style for the card */
+.card {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for the form */
+.form-group {
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="submit"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Style for the buttons */
+.btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background-color: #bd2130;
+}
+
+/* Style for the image */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Style for the headings */
+h1, h2, h3 {
+  color: #333;
+}
+
+/* Style for the paragraph */
+p {
+  color: #666;
+}
+
+/* Style for the list */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Style for the list items */
+li {
+  margin-bottom: 10px;
+}
+
+/* Style for the likes and comments */
+.likes-comments {
+  margin-top: 20px;
+}

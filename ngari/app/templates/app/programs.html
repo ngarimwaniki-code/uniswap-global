@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Programs - UniSwap Global{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        {% for program in programs %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ program.image.url }}" class="card-img-top" alt="{{ program.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ program.title }}</h5>
+                    <p class="card-text">{{ program.description }}</p>
+                    <p class="card-text">Price: ${{ program.price }}</p>
+                    {% if program.enrollment_open %}
+                        <form action="{% url 'enroll_program' program.id %}" method="POST">
+                            {% csrf_token %}
+                            <!-- Add more enrollment fields here if needed -->
+                            <button type="submit" class="btn btn-primary">Enroll Now</button>
+                        </form>
+                    {% else %}
+                        <p class="text-danger">Enrollment closed</p>
+                    {% endif %}
+                    <!-- PayPal button -->
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="{{ program.paypal_button_id }}">
+                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

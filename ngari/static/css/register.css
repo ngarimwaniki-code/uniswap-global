@@ -1,0 +1,68 @@
+.custom-input {
+    border: 1px solid #ced4da;
+    border-radius: 0.5rem; /* Increase border-radius for rounded corners */
+    padding: 1.5rem; /* Increase padding for larger input boxes */
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 400px;
+}
+
+
+.custom-input:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.btn-3d {
+    background-color: #007bff; /* Button background color */
+    border: none;
+    border-radius: 0.5rem;
+    color: #fff;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-family: 'Roboto', sans-serif; /* Custom font */
+}
+
+.btn-3d:hover {
+    transform: translate(0, -3px);
+    box-shadow: 0 2px 10px rgba(0, 123, 255, 0.5); /* Shadow on hover */
+}
+
+
+.form-group {
+    position: relative;
+    margin-bottom: 20px; /* Adjust spacing between form groups */
+    text-align: center; /* Center align the label */
+}
+
+.form-group label {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0; /* Center the label horizontally */
+    font-size: 0.9rem;
+    color: #495057;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-group input:focus + label, .form-group input:not(:placeholder-shown) + label {
+    top: -20px;
+    left: 0;
+    right: 0; /* Center the label horizontally */
+    font-size: 0.9rem;
+    color: #495057;
+}
+
+
+.register-title {
+    text-align: center; /* Center align the text */
+    font-family: 'Roboto', sans-serif; /* Custom font */
+    font-size: 2rem; /* Adjust font size */
+    color: #007bff; /* Text color */
+    margin-bottom: 1.3rem; /* Adjust margin */
+    margin-top: 0.5rem;
+}

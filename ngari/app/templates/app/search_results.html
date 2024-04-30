@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+<h1>Search Results for "{{ query }}"</h1>
+
+{% if results %}
+    <h2>Profiles:</h2>
+    {% for profile in results.profiles %}
+        <p>{{ profile.user.username }}</p>
+        <!-- Display other relevant fields -->
+    {% endfor %}
+
+    <!-- Repeat for other models -->
+
+{% else %}
+    <p>No results found.</p>
+{% endif %}
+{% endblock %}

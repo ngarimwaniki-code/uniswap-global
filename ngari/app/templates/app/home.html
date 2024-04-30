@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - UniSwap Global{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+<div class="container">
+    <h1>Welcome to UniSwap Global</h1>
+    <p>Explore exchange programs and opportunities around the world!</p>
+
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{% static 'images/program-overview.jpg' %}" class="card-img-top" alt="Program Overview">
+                <div class="card-body">
+                    <h5 class="card-title">Program Overview</h5>
+                    <p class="card-text">Get to know the diverse exchange programs we offer across continents.</p>
+                    <a href="{% url 'programs' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{% static 'images/student-stories.jpg' %}" class="card-img-top" alt="Student Stories">
+                <div class="card-body">
+                    <h5 class="card-title">Student Stories</h5>
+                    <p class="card-text">Discover the experiences of students who have journeyed abroad with us.</p>
+                    <a href="{% url 'stories' %}" class="btn btn-primary">Read Stories</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{% static 'images/partner-universities.jpg' %}" class="card-img-top" alt="Partner Universities">
+                <div class="card-body">
+                    <h5 class="card-title">Partner Universities</h5>
+                    <p class="card-text">Explore our network of prestigious universities around the globe.</p>
+                    <a href="{% url 'partners' %}" class="btn btn-primary">View Partners</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <img src="{% static 'images/program-overview.jpg' %}" class="card-img-top" alt="Program Overview">
+            <div class="card-body">
+                <h5 class="card-title">Career Opportunities Abroad</h5>
+                <p class="card-text">Explore job prospects and internships worldwide to kickstart your global career.</p>
+                <a href="{% url 'career_opportunities' %}" class="btn btn-primary">Explore</a>            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <img src="{% static 'images/student-stories.jpg' %}" class="card-img-top" alt="Student Stories">
+            <div class="card-body">
+                <h5 class="card-title">Cultural Immersion Programs</h5>
+                <p class="card-text">Immerse yourself in diverse cultures and traditions with our cultural exchange programs.</p>
+                <a href="{% url 'cultural_immersion' %}" class="btn btn-primary">Discover</a>            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <img src="{% static 'images/partner-universities.jpg' %}" class="card-img-top" alt="Partner Universities">
+            <div class="card-body">
+                <h5 class="card-title">Language Learning Experiences</h5>
+                <p class="card-text">Enhance your language skills and embrace linguistic diversity through our language learning programs.</p>
+                <a href="{% url 'language_learning' %}" class="btn btn-primary">Start Learning</a>            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
