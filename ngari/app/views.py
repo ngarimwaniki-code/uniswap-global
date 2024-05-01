@@ -28,6 +28,7 @@ def partners(request):
     partners = PartnerUniversity.objects.all()
     return render(request, 'partners.html', {'partners': partners})
 
+@login_required
 def home(request):
     programs = Program.objects.all()  
     return render(request, 'app/home.html', {'programs': programs})
