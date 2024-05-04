@@ -239,38 +239,37 @@ footer {
 
 .search-bar-container {
     position: fixed; 
-    top: 0; 
+    top: -8px; 
     left: 50%; 
     transform: translateX(-50%); 
     display: flex;
     justify-content: center;
-    width: 100px; 
     z-index: 1000; 
-    padding: 10px;
+    padding: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 .search-bar {
-    padding: 10px;
+    padding: 8px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 20px;
     font-size: 16px;
-    width: 100px; 
+    width: 300px; 
 }
 
 
 .search-btn {
-    background-color: #08090ada; 
-    color: #fff;
+    background-color: #ffffff; 
+    color: #000000;
     border: none;
-    border-radius: 5px;
-    padding: 10px;
-    margin-left: 5px; 
+    border-radius: 55px;
+    padding: 15px;
+    margin-left: -42px; 
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 .search-btn:hover {
-    background-color: #0056b3; 
+    background-color: #bcbac5; 
 }
 
 #sidebar-toggle {
@@ -366,12 +365,11 @@ body.dark footer {
 
 .logo-container {
     border-radius: 15px; 
-    width: 100px;
-    margin-left: 40px;
+    margin-left: -5px;
     position: fixed;
-    top: 10px; 
+    top: 40px; 
     z-index: 1002;
-    padding: 1px;
+    padding: 0;
 }
 
 .logo-text {
