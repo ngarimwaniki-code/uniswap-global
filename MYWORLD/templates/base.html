@@ -35,9 +35,7 @@
 <body>
     <header class="header">
         <button id="sidebar-toggle" class="toggle-btn"><i class="fas fa-bars"></i></button>
-        <div class="logo-container">
-            <h2 class="logo-text">𝓤𝓷𝓲𝓢𝔀𝓪𝓹</h2>
-        </div>
+        
         <form action="{% url 'search' %}" method="GET">
             <div class="search-bar-container">
                 <input type="text" class="search-bar" name="q" placeholder="Search...">
@@ -46,7 +44,7 @@
         </form>
         <div class="login-register-buttons">
             <div class="button-box">
-                <a href="{% url 'login' %}" class="login-btn"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <a href="{% url 'login' %}" class="login-btn"></i> Login</a>
             </div>
            
         </div>
